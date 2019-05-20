@@ -1,0 +1,2 @@
+class SongLevel < ApplicationRecord
+end
