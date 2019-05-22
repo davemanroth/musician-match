@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+player_levels = [
+  [ "Beginner", "0-1 year" ],
+  [ "Some experience", "1-2 years" ],
+  [ "Intermediate", "2-4 years" ],
+  [ "Advanced", "4-8 years" ],
+  [ "Expert", "8 years or more" ]
+]
+
+player_levels.each do |level, years_played|
+  PlayerLevel.create!( level: level, years_played: years_played )
+end
+
