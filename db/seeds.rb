@@ -14,7 +14,13 @@ player_levels = [
   [ "Expert", "8 years or more" ]
 ]
 
+song_levels = ["Very easy", "Pretty easy", "Medium", "Difficult", "Very difficult", "Insane"] 
+
 player_levels.each do |level, years_played|
   PlayerLevel.create!( level: level, years_played: years_played )
+end
+
+song_levels.each do |level|
+  SongLevel.create!(level: level)
 end
 

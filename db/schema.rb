@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_134506) do
+ActiveRecord::Schema.define(version: 2019_08_14_200418) do
 
   create_table "bands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instruments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,7 +33,6 @@ ActiveRecord::Schema.define(version: 2019_05_22_134506) do
 
   create_table "song_levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "level"
-    t.string "explanation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
