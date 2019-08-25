@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_14_200418) do
+ActiveRecord::Schema.define(version: 2019_08_25_172922) do
 
   create_table "bands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "instrument_song_levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "song_id"
+    t.bigint "instrument_id"
+    t.bigint "song_level_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["instrument_id"], name: "index_instrument_song_levels_on_instrument_id"
+    t.index ["song_id"], name: "index_instrument_song_levels_on_song_id"
+    t.index ["song_level_id"], name: "index_instrument_song_levels_on_song_level_id"
   end
 
   create_table "instruments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
