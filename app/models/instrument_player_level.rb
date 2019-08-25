@@ -1,0 +1,2 @@
+class InstrumentPlayerLevel < ApplicationRecord
+end

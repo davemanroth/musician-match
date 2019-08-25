@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_25_172922) do
+ActiveRecord::Schema.define(version: 2019_08_25_182851) do
 
   create_table "bands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "instrument_player_levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "instrument_id"
+    t.bigint "player_level_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["instrument_id"], name: "index_instrument_player_levels_on_instrument_id"
+    t.index ["player_level_id"], name: "index_instrument_player_levels_on_player_level_id"
+    t.index ["user_id"], name: "index_instrument_player_levels_on_user_id"
   end
 
   create_table "instrument_song_levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,6 +68,17 @@ ActiveRecord::Schema.define(version: 2019_08_25_172922) do
     t.datetime "updated_at", null: false
     t.bigint "band_id"
     t.index ["band_id"], name: "index_songs_on_band_id"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "string"
+    t.string "username"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
   add_foreign_key "songs", "bands"
