@@ -16,11 +16,16 @@ player_levels = [
 
 song_levels = ["Very easy", "Pretty easy", "Medium", "Difficult", "Very difficult", "Insane"] 
 
+instruments = ["Guitar", "Bass", "Vocals", "Drums", "Keyboard"]
+
 player_levels.each do |level, years_played|
-  PlayerLevel.create!( level: level, years_played: years_played )
+  PlayerLevel.create( level: level, years_played: years_played )
 end
 
 song_levels.each do |level|
-  SongLevel.create!(level: level)
+  SongLevel.create(level: level)
 end
 
+instruments.each do |inst|
+  Instrument.create(name: inst)
+end
