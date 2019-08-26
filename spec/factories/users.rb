@@ -7,5 +7,11 @@ FactoryBot.define do
     username { Faker::Internet.username }
     email { Faker::Internet.email }
     password_digest { Faker::Internet.password }
+
+    factory :player do
+      after(:create) do |user|
+        create(:instrument, user: user)
+      end
+    end
   end
 end

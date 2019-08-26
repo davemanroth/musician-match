@@ -15,6 +15,11 @@ RSpec.describe User, type: :model do
     it "should be a valid user" do
       expect(user).to be_valid
     end
+
+    player = FactoryBot.create(:player)
+    it "should be a valid player" do
+      expect(player).to be_valid
+    end
   end
 
   context "Invalid input" do
