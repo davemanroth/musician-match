@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:email) }
   it { should validate_uniqueness_of(:username) }
-  it { should have_many(:instrument_player_levels) }
+  it { should have_many(:player_instruments) }
   it { should have_secure_password }
 
   context "Valid input" do
