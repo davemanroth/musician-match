@@ -16,9 +16,13 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
     end
 
-    player = FactoryBot.create(:player)
-    it "should be a valid player" do
-      expect(player).to be_valid
+    context "Valid guitarist" do
+      it "should be a valid guitarist" do
+        guitarist = FactoryBot.create(:guitarist)
+        expect(guitarist).to be_valid
+        expect(guitarist.instruments.length).to_not be 0
+        expect(guitarist.instruments[0].name).to eq("Guitar")
+      end
     end
   end
 

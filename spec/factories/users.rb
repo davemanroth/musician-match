@@ -8,9 +8,9 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password_digest { Faker::Internet.password }
 
-    factory :player do
+    factory :guitarist do
       after(:create) do |user|
-        create(:instrument, user: user)
+        user.instruments << FactoryBot.create(:instrument, :guitar)
       end
     end
   end
