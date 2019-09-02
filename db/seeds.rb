@@ -11,7 +11,8 @@ player_levels = [
   [ "Some experience", "1-2 years" ],
   [ "Intermediate", "2-4 years" ],
   [ "Advanced", "4-8 years" ],
-  [ "Expert", "8 years or more" ]
+  [ "Expert", "8 years or more" ],
+  [ "Godly", "Lifetime of playing or musical prodigy" ],
 ]
 
 song_levels = ["Very easy", "Pretty easy", "Medium", "Difficult", "Very difficult", "Insane"] 
