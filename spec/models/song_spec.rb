@@ -6,7 +6,7 @@ RSpec.describe Song, type: :model do
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:band) }
 
-  context "Valid input" do
+  context "Valid band input" do
     song = FactoryBot.create(:song_with_band)
 
     it "Should be a vaild song" do
@@ -19,6 +19,14 @@ RSpec.describe Song, type: :model do
 
     it "should have a band associated with it" do
       expect(song.band.name).to_not be_blank
+    end
+  end
+
+  context "Valid instrument input" do
+    song_guitar = FactoryBot.create(:song_guitar)
+byebug
+    it "should have guitar as an instrument" do
+      expect(song_guitar.instruments[0].name).to eq("Guitar")
     end
   end
 

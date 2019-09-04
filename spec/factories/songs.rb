@@ -10,5 +10,12 @@ FactoryBot.define do
         song.band = FactoryBot.build(:band)
       end
     end
+
+    factory :song_guitar do
+      after(:create) do |song|
+        song.instruments << FactoryBot.build(:instrument, :guitar)
+      end
+    end
+
   end
 end
