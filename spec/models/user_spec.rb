@@ -5,24 +5,20 @@ RSpec.describe User, type: :model do
   it { should validate_presence_of(:last_name) }
   it { should validate_presence_of(:username) }
   it { should validate_presence_of(:email) }
-  it { should validate_presence_of(:email) }
-  it { should validate_uniqueness_of(:username) }
   it { should have_many(:player_instruments) }
   it { should have_secure_password }
 
   context "Valid input" do
-    user = FactoryBot.build(:user)
     it "should be a valid user" do
+      user = FactoryBot.build(:user)
       expect(user).to be_valid
     end
 
-    context "Valid guitarist" do
-      it "should be a valid guitarist" do
-        guitarist = FactoryBot.create(:guitarist)
-        expect(guitarist).to be_valid
-        expect(guitarist.instruments.length).to_not be 0
-        expect(guitarist.instruments[0].name).to eq("Guitar")
-      end
+    it "should be a valid guitarist" do
+      guitarist = FactoryBot.create(:guitarist)
+      expect(guitarist).to be_valid
+      expect(guitarist.instruments.length).to_not be 0
+      expect(guitarist.instruments[0].name).to eq("Guitar")
     end
   end
 
